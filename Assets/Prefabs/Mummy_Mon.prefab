@@ -630,6 +630,7 @@ GameObject:
   - component: {fileID: 1461048091812023688}
   - component: {fileID: 1461048091818926638}
   - component: {fileID: 7964246166588541919}
+  - component: {fileID: 339336077671145920}
   m_Layer: 0
   m_Name: Mummy_Mon
   m_TagString: Untagged
@@ -687,6 +688,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa2a25c8e1a9f744db252eac8218c5fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3
+--- !u!65 &339336077671145920
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461048091811533224}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.71559, y: 1.2307694, z: 0.5046407}
+  m_Center: {x: 0.002636373, y: 0.11538398, z: -0.06160774}
 --- !u!1 &1461048091811533226
 GameObject:
   m_ObjectHideFlags: 0
