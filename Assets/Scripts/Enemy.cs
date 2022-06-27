@@ -4,32 +4,36 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 3f;
+    public float speed = 2f;
     public int health = 1;
     float verticalMax = 4.3f;
     float verticalMin = - 5f;
-    int toScore;
+    int toScore = 10;
     Vector3 enemyMove = Vector3.down;
+    GameManager addScore;
 
     private void Start()
     {
+        addScore = GameObject.Find("Game Manager").GetComponent<GameManager>();
         if (gameObject.transform.position.y < 0)
             TurnEnemy();
-
     }
 
     private void Update()
     {
         PhoneController();
-        if (health == 0)
-        {
-            Destroy(gameObject);
-        }
+        CheckDamage();
     }
 
     private void FixedUpdate()
     {
         MoveEnemy();
+    }
+
+    public void EnemyUp()
+    {
+        speed ++;
+        health++;
     }
 
     void MoveEnemy()
@@ -47,6 +51,7 @@ public class Enemy : MonoBehaviour
         gameObject.transform.Rotate(0, 180, 0);
     }
 
+    //May be the PhoneController isn't work
     void PhoneController()
     {
         if ((Input.touchCount > 0) && (Input.touches[0].phase == TouchPhase.Began))
@@ -60,6 +65,16 @@ public class Enemy : MonoBehaviour
                     health--;
                 }
             }
+        }
+    }
+
+    void CheckDamage()
+    {
+        if (health == 0)
+        {
+            addScore.IncreaseScore(toScore);
+            GameManager.monsterCount--;
+            Destroy(gameObject);
         }
     }
     private void OnMouseDown()
