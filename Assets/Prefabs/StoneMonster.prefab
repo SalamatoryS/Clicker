@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 6095616541675902808}
   m_Layer: 0
   m_Name: StoneMonster
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -373,6 +373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa2a25c8e1a9f744db252eac8218c5fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
+  health: 1
 --- !u!65 &6095616541675902808
 BoxCollider:
   m_ObjectHideFlags: 0

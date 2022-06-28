@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Text playerName;
     public Text scoreText;
     public GameObject gameOverText;
+    public GameObject destroyButton;
     public bool isGameActive;
     
     int score = 0;
@@ -56,6 +57,10 @@ public class GameManager : MonoBehaviour
             }
             scoreToUp = 0;
         }
+        if ((score % 100) == 0)
+        {
+            destroyButton.SetActive(true);
+        }
     }
 
     IEnumerator Game()
@@ -65,10 +70,11 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(spawnRate);
             SpawnEnemy();
             spawnRate = Random.Range(0, randTime);
-            if (monsterCount > 10)
+            if (monsterCount == 10)
             {
                 isGameActive = false;
                 gameOverText.SetActive(true);
+
             }
         }
     }
