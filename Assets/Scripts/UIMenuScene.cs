@@ -35,7 +35,7 @@ public class UIMenuScene : MonoBehaviour
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #else
-        Application.Quit():
+        Application.Quit();
 #endif
     }
 
