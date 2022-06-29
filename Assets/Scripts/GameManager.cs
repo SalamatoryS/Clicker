@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverText;
     public GameObject destroyButton;
     public bool isGameActive;
-    
+
+    UIMainScene forGameOver;
     int score = 0;
     int scoreToUp = 0;
     float verticalTop = 4.3f;
@@ -29,7 +30,8 @@ public class GameManager : MonoBehaviour
         isGameActive = true;
         randLenght = enemy.Length;
         playerName.text = DataBetweenScenes.Instance.userName;
-        StartCoroutine(Game());     
+        StartCoroutine(Game());
+        forGameOver = GameObject.Find("Canvas").GetComponent<UIMainScene>();
     }
 
     private void Update()
@@ -74,7 +76,7 @@ public class GameManager : MonoBehaviour
             {
                 isGameActive = false;
                 gameOverText.SetActive(true);
-
+                forGameOver.DestoryEnemies();
             }
         }
     }
