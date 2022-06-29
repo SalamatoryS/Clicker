@@ -19,6 +19,7 @@ public class UIMainScene : MonoBehaviour
         {
             DataBetweenScenes.Instance.SaveUser(gameManager.Score);
         }
+        GameManager.monsterCount = 0;
         SceneManager.LoadScene(0);
     }
 
