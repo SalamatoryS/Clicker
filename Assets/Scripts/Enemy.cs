@@ -21,7 +21,6 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        PhoneController();
         CheckDamage();
     }
 
@@ -49,23 +48,6 @@ public class Enemy : MonoBehaviour
     {
         enemyMove = -enemyMove;
         gameObject.transform.Rotate(0, 180, 0);
-    }
-
-    //May be the PhoneController isn't work
-    void PhoneController()
-    {
-        if ((Input.touchCount > 0) && (Input.touches[0].phase == TouchPhase.Began))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider != null)
-                {
-                    health--;
-                }
-            }
-        }
     }
 
     void CheckDamage()
